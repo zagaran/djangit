@@ -1,6 +1,7 @@
 # djangit
 Django-enhanced versions of classic git commands
 
+## Installing djangit
 To install djangit, you will need ssh credentials for github.  Run
 
     pip install git+ssh://git@github.com/zagaran/djangit.git
@@ -21,7 +22,7 @@ with the following contents
 
 Now the "checkout" command will be available as a django management command.
 
-## Djangit checkout
+## djangit checkout
 The "checkout" command functions like git checkout, but also takes care of django migrations.  The algorithm
 identifies the largest migration subtree that is common to the two branches.  It then migrates down to this
 core subtree, switches branches, and then migrates back up on the new branch.  The idea is to leave all common
@@ -34,6 +35,4 @@ To use the command, run
 This will show you the commands that checkout plans to run.  If you like what you see, then 
 remove the --plan flag:
 
-    python manage.py checkout git_branch_name --plan
-
-
+    python manage.py checkout git_branch_name
