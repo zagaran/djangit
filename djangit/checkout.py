@@ -75,7 +75,7 @@ class Command(BaseCommand):
                     if options['plan']:
                         print("python manage.py migrate", app_name, node)
                     else:
-                        call_command("migrate", app_name, node, verbosity=0)
+                        call_command("migrate", app_name, node)
 
         if options['plan']:
             print("\nSwitch to target branch:")
@@ -84,4 +84,4 @@ class Command(BaseCommand):
             print("python manage.py migrate\n")
         else:
             git_checkout(target_branch)
-            call_command("migrate", verbosity=0)
+            call_command("migrate")
